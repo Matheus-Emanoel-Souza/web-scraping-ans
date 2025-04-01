@@ -1,16 +1,28 @@
-# This is a sample Python script.
+import os
 
-# Press Ctrl+F5 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+def main():
+    arquivos = []
+    while True:
+        opcao = input("Digite 1 para inserir arquivo, 0 para cancelar, 2 para transformar: ")
+        if opcao == "1":
+            caminho = input("Digite o caminho do arquivo: ")
+            if os.path.exists(caminho):
+                arquivos.append(caminho)
+            else:
+                print("Arquivo não encontrado.")
+        elif opcao == "0":
+            print("Operação cancelada.")
+            break
+        elif opcao == "2":
+            if arquivos:
+                print("Transformação realizada para os arquivos:")
+                for arquivo in arquivos:
+                    print(arquivo)
+            else:
+                print("Nenhum arquivo foi informado.")
+            break
+        else:
+            print("Opção inválida.")
 
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press F9 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+if __name__ == "__main__":
+    main()
